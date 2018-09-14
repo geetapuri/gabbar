@@ -1,0 +1,119 @@
+<!-- Generated template for the ScheduleComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <img alt="logo" height="40" src="assets/imgs/parent.png"> CLASS SCHEDULE
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+
+
+    <ion-item>
+        Click on Kid Name to see the scheduled class list
+
+
+    </ion-item>
+
+    <ion-card style="background:light">
+
+        <ion-grid padding>
+            <ion-row style="background:#488aff">
+                <ion-col col-2>
+                    KID ID
+                </ion-col>
+                <ion-col col-10>
+                    KID NAME
+                </ion-col>
+
+            </ion-row>
+
+            <ion-row *ngFor="let item of kidsList" (click)="getSchedule(item)">
+                <ion-col col-2>
+
+
+                    {{ item.kidID }}
+
+                </ion-col>
+                <ion-col col-10>
+
+                    {{ item.kidName }}
+
+                </ion-col>
+
+            </ion-row>
+
+        </ion-grid>
+
+
+    </ion-card>
+
+
+
+
+
+
+    <ion-card style="background:light" *ngIf="clickedGetSchedule">
+
+        <ion-grid padding>
+            <ion-row style="background:#488aff">
+                <ion-col col-2>
+                    DATE
+                </ion-col>
+                <ion-col col-2>
+                    TIME
+                </ion-col>
+                <ion-col col-3>
+                    KID NAME
+                </ion-col>
+                <ion-col col-5>
+                    GROUP GROUPID
+                </ion-col>
+
+            </ion-row>
+
+            <ion-row *ngFor="let item of scheduleList">
+                <ion-col col-2>
+
+
+                    {{ item.date }}
+
+                </ion-col>
+                <ion-col col-2>
+
+                    {{ item.time }}
+
+                </ion-col>
+
+                <ion-col col-3>
+                    {{showKidName}}
+                </ion-col>
+
+                <ion-col col-5>
+
+                    {{ item.groupName }} {{item.groupID}}
+
+                </ion-col>
+
+            </ion-row>
+
+        </ion-grid>
+
+
+    </ion-card>
+
+    <div padding>
+
+
+    </div>
+
+
+
+
+
+
+
+</ion-content>

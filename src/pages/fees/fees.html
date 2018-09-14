@@ -1,0 +1,61 @@
+<!-- Generated template for the FeesComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <img float-left alt="logo" height="30" src="assets/imgs/axar_wide.png"> Fees
+                    </ion-col>
+                    <ion-col>
+                        <img float-right height="30" src="assets/imgs/home.png" (click)="goBackHome()">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+
+
+
+    <div padding>
+        <div *ngIf="kidsList">
+
+            <div>
+                <ion-row id="group-name">
+                    <ion-col>
+                        <div padding float-left>
+                            Kids - Groups
+                        </div>
+                    </ion-col>
+                    <ion-col>
+                        <div padding float-right> Fee Due </div>
+                    </ion-col>
+                </ion-row>
+
+
+
+
+
+            </div>
+
+
+            <button ion-button block id="list-row" *ngFor="let item of kidsList let odd=odd; let even=even" [ngClass]="{ odd: odd, even:even}" (click)="getFeesForKid(item)">
+            <ion-col col-8><div float-left >{{ item.kidName }} {{item.groupName}}</div></ion-col>
+            <ion-col><div float-right id="fee-amount">{{ item.invoiceAmount}}</div></ion-col>
+            <ion-col><div float-right id ="invoice-due">{{ item.invoiceDue}}</div></ion-col>
+
+          </button>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+</ion-content>

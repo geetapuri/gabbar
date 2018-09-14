@@ -1,0 +1,65 @@
+<!-- Generated template for the AttendanceComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <img float-left alt="logo" height="30" src="assets/imgs/axar_wide.png"> Attendance
+                    </ion-col>
+                    <ion-col>
+                        <img float-right height="30" src="assets/imgs/home.png" (click)="goBackHome()">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div padding>
+        <div id="group-name">
+            <div padding>
+                Click Kid to see Attendance
+            </div>
+            <ion-row *ngIf="kidList; else loading">
+                <button ion-button block id="list-row" *ngFor="let item of kidList let odd=odd; let even=even" [ngClass]="{ odd: odd, even:even}" (click)="getAttendanceForKidGroup(item)">
+                <div >{{item.kidName}} - {{ item.groupName }}</div>
+
+              </button>
+
+
+            </ion-row>
+        </div>
+
+        <div>
+            <ng-template #loading>
+                <ion-spinner name="bubbles">Loading Groups...</ion-spinner>
+            </ng-template>
+        </div>
+
+
+    </div>
+
+    <div padding>
+
+        <div padding *ngIf="attendanceList">
+            Showing Attendace for {{selectedKid}} - {{groupName}}
+        </div>
+
+        <div *ngIf="attendanceList" class="scroll-list">
+
+
+
+            <button id="list-row" *ngFor="let item of attendanceList let odd=odd; let even=even" [ngClass]="{ odd: odd, even:even}">
+            <div id="class-date">{{ item.date  }}</div>
+              <div padding> {{item.presentAbsent}} </div>
+
+          </button>
+
+        </div>
+    </div>
+
+
+</ion-content>

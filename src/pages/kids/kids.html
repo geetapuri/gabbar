@@ -1,0 +1,57 @@
+<!-- Generated template for the KidsComponent component -->
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <img alt="logo" height="40" src="assets/imgs/parent.png"> KIDS
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div padding>
+
+        <button ion-button icon-right (click)="addKids()">Add Kids
+        <ion-icon name="add-circle" ></ion-icon>
+      </button>
+    </div>
+
+    <ion-card style="background:light">
+
+        <ion-grid padding>
+            <ion-row style="background:#488aff">
+                <ion-col col-2>
+                    KID ID
+                </ion-col>
+                <ion-col col-5>
+                    KID NAME
+                </ion-col>
+                <ion-col col-5>
+                    GROUP NAME ID
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngFor="let item of kidList" (click)="goToEditKidDetails(item)">
+                <ion-col col-2>
+
+
+                    {{ item.kidID }}
+
+                </ion-col>
+                <ion-col col-5>
+
+                    {{ item.kidName }}
+
+                </ion-col>
+                <ion-col col-5>
+
+                    {{ item.groupName }} {{item.groupID}}
+
+                </ion-col>
+            </ion-row>
+
+        </ion-grid>
+
+
+    </ion-card>
+
+</ion-content>
