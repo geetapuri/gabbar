@@ -19,6 +19,7 @@ export class PayFeesPage implements OnInit{
 
     ngOnInit(){
     console.log(" get fees for kid - "+ this.kid.kidName);
+    console.log("group id = : " + this.kid.groupID);
     this.springData.viewFeesForKid(this.kid).subscribe(
     data => {
 

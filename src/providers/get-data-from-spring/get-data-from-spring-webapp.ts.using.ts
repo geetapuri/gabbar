@@ -141,11 +141,11 @@ export class GetDataFromSpringProvider {
     let headers = new Headers ({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
       let body = {
-        
+
       }
       headers.append('Access-Control-Allow-Origin' , '*');
       headers.append('Access-Control-Allow-Methods' , 'POST, GET, OPTIONS, PUT');
-      
+
       //return this.http.post(`http://172.20.10.2:8080/getKids`,body, {headers: headers1})
      return this.http.post(`/getCalendarKidDate`, body, {headers: headers})
       .map(data => data.json());
@@ -232,7 +232,7 @@ export class GetDataFromSpringProvider {
      return this.http.post(`/viewAttendanceKid`, body, {headers: headers})
       .map(data => data.json());
   }
-  
+
   viewAttendanceForKidGroup(item){
     console.log(" in view attendance for kid, kidID = " + item.kidID);
 
@@ -305,7 +305,8 @@ export class GetDataFromSpringProvider {
     let headers = new Headers ({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
       let body = {
-        'kidID': item.kidID
+        'kidID': item.kidID,
+        'groupId': item.groupID
       }
       headers.append('Access-Control-Allow-Origin' , '*');
       headers.append('Access-Control-Allow-Methods' , 'POST, GET, OPTIONS, PUT');
@@ -342,7 +343,7 @@ export class GetDataFromSpringProvider {
     }
     headers.append('Access-Control-Allow-Origin' , '*');
     headers.append('Access-Control-Allow-Methods' , 'POST, GET, OPTIONS, PUT');
-    
+
     //return this.http.post(`http://172.20.10.2:8080/getKids`,body, {headers: headers1})
   return this.http.post(`/getKidInfoParent`, body, {headers: headers})
     .map(data => data.json());
@@ -381,8 +382,8 @@ getKidsFeeParent(parent){
   return this.http.post(`/getKidInfoParentToday`, body, {headers: headers})
     .map(data => data.json());
   }
-  
-  
+
+
   updateKid(kid){
     console.log("In update Kid Info");
     let headers = new Headers ({ 'Content-Type': 'application/json' });

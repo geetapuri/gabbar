@@ -305,7 +305,8 @@ export class GetDataFromSpringProvider {
     let headers = new Headers ({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
       let body = {
-        'kidID': item.kidID
+        'kidID': item.kidID,
+        'groupID': item.groupID
       }
       headers.append('Access-Control-Allow-Origin' , '*');
       headers.append('Access-Control-Allow-Methods' , 'POST, GET, OPTIONS, PUT');
